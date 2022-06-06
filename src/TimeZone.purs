@@ -11,6 +11,7 @@ module TimeZone
   ) where
 
 import Pre
+
 import Data.DateTime as Data.DateTime
 import Data.Formatter.DateTime as Data.Formatter.DateTime
 import Data.Formatter.Parser.Interval as Data.Formatter.Parser.Interval
@@ -18,13 +19,11 @@ import Data.Generic.Rep (class Generic)
 import Data.Show.Generic (genericShow)
 import Data.Time.Duration as Data.Time.Duration
 
-newtype TimeZone
-  = TimeZone String
+newtype TimeZone =
+  TimeZone String
 
 derive instance newtypeTimeZone :: Newtype TimeZone _
-
 derive instance genericTimeZone :: Generic TimeZone _
-
 derive instance eqTimeZone :: Eq TimeZone
 
 instance showTimeZone :: Show TimeZone where
