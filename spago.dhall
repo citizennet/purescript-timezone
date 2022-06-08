@@ -7,6 +7,7 @@ in
   { name
   , dependencies =
       [ "datetime"
+      , "cn-debug"
       , "either"
       , "formatters"
       , "pre"
