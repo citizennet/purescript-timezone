@@ -11,7 +11,7 @@ in
       , "either"
       , "formatters"
       , "pre"
-      , "test-unit"
+      , "test-utils"
       ]
   , packages = ../../packages.dhall
   -- Due to a spago bug (see https://github.com/purescript/spago/issues/648)
