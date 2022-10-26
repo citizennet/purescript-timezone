@@ -6,8 +6,8 @@
         datetime
         either
         formatters
-        self'.packages.cn-debug
-        self'.packages.pre
+        cn-debug
+        pre
       ];
       npmlock2nix = pkgs.callPackages self.inputs.npmlock2nix { };
       foreign.TimeZone.node_modules =
@@ -15,7 +15,9 @@
 
       ps = config.purs-nix.purs {
         inherit dependencies foreign;
-        test-dependencies = [ self'.packages.test-utils ];
+        test-dependencies = with config.purs-nix.ps-pkgs; [
+          test-utils
+        ];
         test-module = "Test.TimeZone";
         dir = ./.;
       };
