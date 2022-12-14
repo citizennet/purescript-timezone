@@ -1,5 +1,3 @@
-{ pkgs, npmlock2nix, ... }:
-
 {
   name = "timezone";
   srcs = [ "src" ];
@@ -10,8 +8,10 @@
     "cn-debug"
     "pre"
   ];
-  foreign.TimeZone.node_modules =
-    (npmlock2nix.node_modules { src = ./.; }) + /node_modules;
+  foreign.TimeZone = {
+    type = "npm";
+    path = ./.;
+  };
   test-dependencies = [
     "test-utils"
   ];
