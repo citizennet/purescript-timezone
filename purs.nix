@@ -12,8 +12,10 @@
     type = "npm";
     path = ./.;
   };
-  test-dependencies = [
-    "test-utils"
-  ];
-  test-module = "Test.TimeZone";
+  test = {
+    dependencies = [
+      "test-utils"
+    ];
+    module = "Test.TimeZone";
+  };
 }
