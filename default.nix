@@ -2,12 +2,12 @@
   perSystem = { config, self', inputs', system, pkgs, ... }:
 
     let
-      dependencies = with config.purs-nix.ps-pkgs; [
-        datetime
-        either
-        formatters
-        cn-debug
-        pre
+      dependencies = [
+        "datetime"
+        "either"
+        "formatters"
+        "cn-debug"
+        "pre"
       ];
       npmlock2nix = pkgs.callPackages self.inputs.npmlock2nix { };
       foreign.TimeZone.node_modules =
@@ -15,8 +15,8 @@
 
       ps = config.purs-nix.purs {
         inherit dependencies foreign;
-        test-dependencies = with config.purs-nix.ps-pkgs; [
-          test-utils
+        test-dependencies = [
+          "test-utils"
         ];
         test-module = "Test.TimeZone";
         dir = ./.;
