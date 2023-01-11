@@ -11,6 +11,8 @@ in
       , "either"
       , "formatters"
       , "pre"
+      , "prelude"
+      , "test-unit"
       , "test-utils"
       ]
   , packages = ../../packages.dhall
