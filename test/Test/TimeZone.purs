@@ -2,7 +2,6 @@ module Test.TimeZone (main) where
 
 import Pre
 
-import Data.Either as Data.Either
 import Data.Formatter.DateTime as Data.Formatter.DateTime
 import Data.Formatter.Parser.Interval as Data.Formatter.Parser.Interval
 import Test.Unit as Test.Unit
@@ -78,7 +77,7 @@ testAdjust { expected, startString, adjust } =
           Data.Formatter.Parser.Interval.extendedDateTimeFormatInUTC
           startString
       result <-
-        Data.Either.note
+        note
           ("Couldn't adjust date: " <> startString)
           (adjust pacific start)
       pure
