@@ -10,7 +10,7 @@ module TimeZone
   , utc
   ) where
 
-import Pre
+import CitizenNet.Prelude
 
 import Data.DateTime as Data.DateTime
 import Data.Formatter.DateTime as Data.Formatter.DateTime
