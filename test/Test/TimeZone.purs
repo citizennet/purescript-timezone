@@ -5,8 +5,8 @@ import CitizenNet.Prelude
 import Data.Formatter.DateTime as Data.Formatter.DateTime
 import Data.Formatter.Parser.Interval as Data.Formatter.Parser.Interval
 import Test.Unit as Test.Unit
+import Test.Unit.Assert as Test.Unit.Assert
 import Test.Unit.Main as Test.Unit.Main
-import Test.Utils as Test.Utils
 import TimeZone as TimeZone
 
 main :: Effect Unit
@@ -22,14 +22,14 @@ suite =
 
           expected = Right TimeZone.pacific
         in
-          Test.Utils.equal expected actual
+          Test.Unit.Assert.equal expected actual
       Test.Unit.test "parses \"UTC\" timezone"
         let
           actual = TimeZone.timezone "UTC"
 
           expected = Right TimeZone.utc
         in
-          Test.Utils.equal expected actual
+          Test.Unit.Assert.equal expected actual
       Test.Unit.test "fails to parse invalid TimeZone" case TimeZone.timezone "Mars" of
         Left _ -> Test.Unit.success
         Right _ -> Test.Unit.failure "Did not expect to succeed"
@@ -60,7 +60,7 @@ suite =
                 "2020-07-30T17:00:00Z"
             pure $ TimeZone.format pacific dateTime "MM/D/YY hh:mm a"
         in
-          Test.Utils.equal expected actual
+          Test.Unit.Assert.equal expected actual
 
 testAdjust ::
   { expected :: String
@@ -85,4 +85,4 @@ testAdjust { expected, startString, adjust } =
             Data.Formatter.Parser.Interval.extendedDateTimeFormatInUTC
             result
   in
-    Test.Utils.equal (Right expected) actual
+    Test.Unit.Assert.equal (Right expected) actual

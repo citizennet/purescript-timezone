@@ -18,7 +18,6 @@ import Data.Formatter.Parser.Interval as Data.Formatter.Parser.Interval
 import Data.Generic.Rep (class Generic)
 import Data.Show.Generic (genericShow)
 import Data.Time.Duration as Data.Time.Duration
-import Debug as Debug
 
 newtype TimeZone =
   TimeZone String
@@ -26,9 +25,6 @@ newtype TimeZone =
 derive instance newtypeTimeZone :: Newtype TimeZone _
 derive instance genericTimeZone :: Generic TimeZone _
 derive instance eqTimeZone :: Eq TimeZone
-
-instance debugTimeZone :: Debug.Debug TimeZone where
-  debug timezone' = Debug.opaque "TimeZone" (Debug.debug (name timezone'))
 
 instance showTimeZone :: Show TimeZone where
   show x = genericShow x
