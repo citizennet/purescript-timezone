@@ -11,4 +11,6 @@ exports._format = timezone => dateTime => formatter =>
 exports._offset = timezone => dateTime =>
   Moment(dateTime).tz(timezone).utcOffset();
 
+exports.timezones = Moment.tz.names();
+
 exports.validate = name => Moment.tz.zone(name) !== null;

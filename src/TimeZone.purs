@@ -7,6 +7,7 @@ module TimeZone
   , name
   , pacific
   , timezone
+  , timezones
   , utc
   ) where
 
@@ -34,6 +35,8 @@ foreign import _abbr :: TimeZone -> String -> String
 foreign import _format :: TimeZone -> String -> String -> String
 
 foreign import _offset :: TimeZone -> String -> Number
+
+foreign import timezones :: Array TimeZone
 
 foreign import validate :: String -> Boolean
 
